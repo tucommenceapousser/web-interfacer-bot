@@ -3,7 +3,7 @@ Author: Calixte Mayoraz
 """
 from telegram import Update, KeyboardButton, ReplyKeyboardMarkup, WebAppInfo
 from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler, MessageHandler, filters
-from credentials import BOT_TOKEN, BOT_USERNAME
+from credentials import BOT_TOKEN, BOT_USERNAME, WEBAPP_URL
 import json
 
 
@@ -12,7 +12,7 @@ async def launch_web_ui(update: Update, callback: CallbackContext):
     kb = [
         [KeyboardButton(
             "Show me my Web-App!",
-            web_app=WebAppInfo("https://calixtemayoraz.gitlab.io/web-interfacer-bot/")
+            web_app=WebAppInfo(WEBAPP_URL)
         )]
     ]
     await update.message.reply_text("Let's do this...", reply_markup=ReplyKeyboardMarkup(kb))
